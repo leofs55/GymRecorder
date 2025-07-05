@@ -4,5 +4,6 @@ import dev.lest.GymRecorder.core.entities.Training.Training;
 
 public interface CreateTrainingCase {
 
-    public Training execute(Training training);
+    Training execute(Training training);
+
 }

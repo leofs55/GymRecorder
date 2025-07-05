@@ -2,8 +2,8 @@ package dev.lest.GymRecorder.core.usecases.Training.interfaces;
 
 import dev.lest.GymRecorder.core.entities.Training.Training;
 
-public interface DeleteTrainingCase {
+public interface UpdateTrainingCase {
 
-    void execute(Long id);
+    Training execute(Training training);
 
 }

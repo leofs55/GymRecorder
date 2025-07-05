@@ -8,6 +8,6 @@ public record Exercise(Long id,
                        Integer sets,
                        Double weight,
                        Duration restTime,
-                       Long idTraing,
-                       Long idUser) {
+                       Long trainingId,
+                       Long userId) {
 }

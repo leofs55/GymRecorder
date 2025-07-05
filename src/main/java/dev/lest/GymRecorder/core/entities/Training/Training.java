@@ -11,5 +11,5 @@ public record Training(Long id,
                        DaysWeek dayWeek,
                        List<Exercise> exercises,
                        Duration duration,
-                       Long idUser) {
+                       Long userId) {
 }

@@ -2,8 +2,10 @@ package dev.lest.GymRecorder.core.usecases.Exercise.interfaces;
 
 import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
 
-public interface CreateExerciseCase {
+import java.util.List;
 
-    Exercise execute(Exercise exercise);
+public interface FindAllByTrainingIdExerciseCase {
+
+    List<Exercise> execute(Long trainingId);
 
 }

@@ -1,9 +1,9 @@
 package dev.lest.GymRecorder.core.usecases.Training.classes;
 
 import dev.lest.GymRecorder.core.entities.Training.Training;
-import dev.lest.GymRecorder.core.usecases.Training.interfaces.CreateTrainingCase;
+import dev.lest.GymRecorder.core.usecases.Training.interfaces.UpdateTrainingCase;
 
-public class CreateTrainingCaseImp implements CreateTrainingCase {
+public class UpdateTrainingCaseImp implements UpdateTrainingCase {
 
     @Override
     public Training execute(Training training) {
