@@ -2,7 +2,7 @@ package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 
 
 import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
-import dev.lest.GymRecorder.core.enuns.DaysWeek;
+import dev.lest.GymRecorder.core.enuns.DayWeek;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -25,7 +25,7 @@ public class Training {
     @NotNull
     private String name;
     @NotNull
-    private DaysWeek dayWeek;
+    private DayWeek dayWeek;
     @NotNull
     private List<Exercise> exercises;
     @NotNull

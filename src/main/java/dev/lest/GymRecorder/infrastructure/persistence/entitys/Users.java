@@ -1,5 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 
+import dev.lest.GymRecorder.core.enuns.Role;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
@@ -22,5 +23,7 @@ public class Users {
     private String email;
     @NotNull
     private String password;
+    @NotNull
+    private Role userRole;
 
 }
