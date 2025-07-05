@@ -2,7 +2,7 @@ package dev.lest.GymRecorder.core.entities.Exercise;
 
 import java.time.Duration;
 
-public record Exercise(Long id,
+public record Exercise(String id,
                        String name,
                        Integer repetitions,
                        Integer sets,

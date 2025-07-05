@@ -17,21 +17,13 @@ import java.time.Duration;
 public class Exercise {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotNull
+    private String id;
     private String name;
-    @NotNull
     private Integer repetitions;
-    @NotNull
     private Integer sets;
-    @NotNull
     private Double weight;
-    @NotNull
     private Duration restTime;
-    @NotNull
     private Long trainingId;
-    @NotNull
     private Long userId;
 
 }

@@ -6,7 +6,7 @@ import dev.lest.GymRecorder.core.enuns.DayWeek;
 import java.time.Duration;
 import java.util.List;
 
-public record Training(Long id,
+public record Training(String id,
                        String name,
                        DayWeek dayWeek,
                        List<Exercise> exercises,

@@ -20,17 +20,11 @@ import java.util.List;
 public class Training {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-    @NotNull
+    private String id;
     private String name;
-    @NotNull
     private DayWeek dayWeek;
-    @NotNull
     private List<Exercise> exercises;
-    @NotNull
     private Duration duration;
-    @NotNull
     private Long userId;
 
 }
