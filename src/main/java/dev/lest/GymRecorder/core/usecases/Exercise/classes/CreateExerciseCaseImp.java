@@ -8,7 +8,6 @@ import java.util.List;
 
 public class CreateExerciseCaseImp implements CreateExerciseCase {
 
-
     @Override
     public Exercise execute(Exercise exercise) {
         return null;

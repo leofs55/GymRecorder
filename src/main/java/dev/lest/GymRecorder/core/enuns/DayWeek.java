@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.core.enuns;
 
-public enum DaysWeek {
+public enum DayWeek {
     MONDAY,
     TUESDAY,
     WEDNESDAY,
