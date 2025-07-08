@@ -1,7 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 
-import jakarta.persistence.*;
-import jakarta.validation.constraints.NotNull;
+import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -23,7 +22,7 @@ public class Exercise {
     private Integer sets;
     private Double weight;
     private Duration restTime;
-    private Long trainingId;
-    private Long userId;
+    private String trainingId;
+    private Users user;
 
 }

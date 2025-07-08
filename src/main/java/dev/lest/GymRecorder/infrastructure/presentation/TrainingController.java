@@ -15,19 +15,23 @@ import java.util.List;
 public class TrainingController {
 
     @PostMapping("create")
-    public TrainingCreateResponse createEndPoint(@RequestBody TrainingCreateRequest trainingCreateRequest) {}
+    public TrainingCreateResponse createEndPoint(@RequestBody TrainingCreateRequest trainingCreateRequest) {
+    }
 
     @DeleteMapping("detele/{id}")
-    public TrainingDeleteResponse deleteEndPoint(@PathVariable String id) {}
+    public TrainingDeleteResponse deleteEndPoint(@PathVariable String id) {
+    }
 
     @GetMapping("find-by/{id}")
-    public TrainingResponse findByIdEndPoint(@PathVariable String id) {}
+    public TrainingResponse findByIdEndPoint(@PathVariable String id) {
+    }
 
     @GetMapping("find-by/{userId}")
-    public List<TrainingResponse> findAllByUserIdEndPoint(@PathVariable Long id) {}
+    public List<TrainingResponse> findAllByUserIdEndPoint(@PathVariable Long id) {
+    }
 
     @PatchMapping("update/{id}")
     public TrainingUpdateResponse updateEndPoint(@PathVariable String id,
-                                                 @RequestBody TrainingUpdateRequest trainingUpdateRequest) {}
-
+                                                 @RequestBody TrainingUpdateRequest trainingUpdateRequest) {
+    }
 }

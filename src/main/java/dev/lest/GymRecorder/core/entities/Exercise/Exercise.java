@@ -1,5 +1,7 @@
 package dev.lest.GymRecorder.core.entities.Exercise;
 
+import dev.lest.GymRecorder.core.entities.Users.User;
+
 import java.time.Duration;
 
 public record Exercise(String id,
@@ -8,6 +10,6 @@ public record Exercise(String id,
                        Integer sets,
                        Double weight,
                        Duration restTime,
-                       Long trainingId,
-                       Long userId) {
+                       String trainingId,
+                       User user) {
 }

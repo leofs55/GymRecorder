@@ -15,21 +15,27 @@ import java.util.List;
 public class ExerciseController {
 
     @PostMapping("create")
-    public ExerciseCreateResponse createEndPoint(@RequestBody ExerciseCreateRequest exerciseCreateRequest) {}
+    public ExerciseCreateResponse createEndPoint(@RequestBody ExerciseCreateRequest exerciseCreateRequest) {
+    }
 
     @DeleteMapping("detele/{id}")
-    public ExerciseDeleteResponse deleteEndPoint(@PathVariable String id) {}
+    public ExerciseDeleteResponse deleteEndPoint(@PathVariable String id) {
+    }
 
     @GetMapping("find-by/{id}")
-    public ExerciseResponse findByIdEndPoint(@PathVariable String id) {}
+    public ExerciseResponse findByIdEndPoint(@PathVariable String id) {
+    }
 
     @GetMapping("find-by/{trainingId}")
-    public List<ExerciseResponse> findAllByTrainingIdEndPoint(@PathVariable String id) {}
+    public List<ExerciseResponse> findAllByTrainingIdEndPoint(@PathVariable String id) {
+    }
 
     @GetMapping("find-by/{userId}")
-    public List<ExerciseResponse> findAllByUserIdEndPoint(@PathVariable Long id) {}
+    public List<ExerciseResponse> findAllByUserIdEndPoint(@PathVariable Long id) {
+    }
 
     @PatchMapping("update/{id}")
-    public ExerciseUpdateResponse updateEndPoint(@RequestBody ExerciseUpdateRequest exerciseUpdateRequest) {}
+    public ExerciseUpdateResponse updateEndPoint(@RequestBody ExerciseUpdateRequest exerciseUpdateRequest) {
+    }
 
 }

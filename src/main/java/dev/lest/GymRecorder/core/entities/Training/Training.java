@@ -1,6 +1,7 @@
 package dev.lest.GymRecorder.core.entities.Training;
 
 import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
+import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.core.enuns.DayWeek;
 
 import java.time.Duration;
@@ -11,5 +12,5 @@ public record Training(String id,
                        DayWeek dayWeek,
                        List<Exercise> exercises,
                        Duration duration,
-                       Long userId) {
+                       User user) {
 }
