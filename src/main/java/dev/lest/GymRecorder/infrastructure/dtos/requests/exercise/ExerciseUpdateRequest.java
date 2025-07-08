@@ -1,4 +1,12 @@
 package dev.lest.GymRecorder.infrastructure.dtos.requests.exercise;
 
-public record ExerciseUpdateRequest() {
+import java.time.Duration;
+
+public record ExerciseUpdateRequest(String name,
+                                    Integer repetitions,
+                                    Integer sets,
+                                    Double weight,
+                                    Duration restTime,
+                                    String trainingId,
+                                    Long userId) {
 }

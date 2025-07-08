@@ -1,4 +1,8 @@
 package dev.lest.GymRecorder.infrastructure.dtos.responses.user;
 
-public record UserDeleteResponse () {
+import lombok.Builder;
+
+@Builder
+public record UserDeleteResponse(Long id,
+                                 String result) {
 }

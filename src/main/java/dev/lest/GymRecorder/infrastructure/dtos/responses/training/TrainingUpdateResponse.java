@@ -1,4 +1,18 @@
 package dev.lest.GymRecorder.infrastructure.dtos.responses.training;
 
-public record TrainingUpdateResponse() {
+import dev.lest.GymRecorder.core.enuns.DayWeek;
+import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
+import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
+import lombok.Builder;
+
+import java.time.Duration;
+import java.util.List;
+
+@Builder
+public record TrainingUpdateResponse(String id,
+                                     String name,
+                                     DayWeek dayWeek,
+                                     List<ExerciseResponse> exerciseResponseList,
+                                     Duration duration,
+                                     UserResponse userResponse) {
 }

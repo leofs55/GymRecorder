@@ -1,4 +1,10 @@
 package dev.lest.GymRecorder.infrastructure.dtos.responses.user;
 
-public record UserCreateResponse () {
+import dev.lest.GymRecorder.core.enuns.Role;
+import lombok.Builder;
+
+@Builder
+public record UserCreateResponse(String name,
+                                 String email,
+                                 Role userRole) {
 }

@@ -1,4 +1,15 @@
 package dev.lest.GymRecorder.infrastructure.dtos.requests.exercise;
 
-public record ExerciseCreateRequest() {
+import lombok.Builder;
+
+import java.time.Duration;
+
+@Builder
+public record ExerciseCreateRequest(String name,
+                                    Integer repetitions,
+                                    Integer sets,
+                                    Double weight,
+                                    Duration restTime,
+                                    String trainingId,
+                                    Long userId) {
 }
