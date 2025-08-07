@@ -2,6 +2,7 @@ package dev.lest.GymRecorder.infrastructure.dtos.responses.training;
 
 import dev.lest.GymRecorder.core.enuns.DayWeek;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
+import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserCreateResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import lombok.Builder;
 
@@ -14,5 +15,5 @@ public record TrainingCreateResponse(String id,
                                      DayWeek dayWeek,
                                      List<ExerciseResponse> exerciseResponseList,
                                      Duration duration,
-                                     UserResponse userResponse) {
+                                     UserCreateResponse userResponse) {
 }

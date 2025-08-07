@@ -1,5 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -23,6 +24,7 @@ public class Exercise {
     private Double weight;
     private Duration restTime;
     private String trainingId;
+    @JsonIgnore
     private Users user;
 
 }

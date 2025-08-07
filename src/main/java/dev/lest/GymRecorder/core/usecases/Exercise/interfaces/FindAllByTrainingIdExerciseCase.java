@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface FindAllByTrainingIdExerciseCase {
 
-    List<Exercise> execute(Long trainingId);
+    List<Exercise> execute(String trainingId);
 
 }

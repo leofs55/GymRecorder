@@ -4,7 +4,8 @@ import dev.lest.GymRecorder.core.enuns.Role;
 import lombok.Builder;
 
 @Builder
-public record UserResponse(String name,
+public record UserResponse(Long id,
+                           String name,
                            String email,
                            Role userRole) {
 }

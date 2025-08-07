@@ -1,16 +1,55 @@
 package dev.lest.GymRecorder.infrastructure.mappers.training;
 
+import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
+import dev.lest.GymRecorder.core.entities.Training.Training;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.training.TrainingCreateRequest;
-import dev.lest.GymRecorder.infrastructure.persistence.entitys.Training;
+import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
+import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingCreateResponse;
+import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseCreateMapper;
+import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
+import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
 public class TrainingCreateMapper {
 
     public static Training map(TrainingCreateRequest trainingCreateRequest) {
-        return Training.builder().build();
+
+        List<Exercise> exerciseList = trainingCreateRequest.exerciseResponseList().stream()
+                .map(ExerciseCreateMapper::map)
+                .collect(Collectors.toList());
+
+        return new Training(
+                trainingCreateRequest.name(),
+                trainingCreateRequest.dayWeek(),
+                exerciseList,
+                trainingCreateRequest.duration(),
+                UserCreateMapper.map(trainingCreateRequest.userId())
+        );
+    }
+
+    public static Training map(String id) {
+        return new Training(id);
+    }
+
+    public static TrainingCreateResponse map(Training training) {
+
+        List<ExerciseResponse> responseList = training.getExercises().stream()
+                .map(ExerciseMapper::map)
+                .collect(Collectors.toList());
+
+        return TrainingCreateResponse.builder()
+                .id(training.getId())
+                .name(training.getName())
+                .dayWeek(training.getDayWeek())
+                .exerciseResponseList(responseList)
+                .userResponse(UserCreateMapper.map(training.getUser()))
+                .build();
     }
 
 }

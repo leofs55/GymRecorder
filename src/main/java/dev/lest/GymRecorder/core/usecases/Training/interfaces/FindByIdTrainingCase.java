@@ -4,5 +4,5 @@ import dev.lest.GymRecorder.core.entities.Training.Training;
 
 public interface FindByIdTrainingCase {
 
-    Training execute(Long id);
+    Training execute(String id);
 }

@@ -4,6 +4,6 @@ import dev.lest.GymRecorder.core.entities.Training.Training;
 
 public interface DeleteTrainingCase {
 
-    void execute(Long id);
+    boolean execute(String id);
 
 }

@@ -1,31 +1,31 @@
 package dev.lest.GymRecorder.infrastructure.mappers.users;
 
 import dev.lest.GymRecorder.core.entities.Users.User;
-import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserCreateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserUpdateRequest;
-import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserCreateResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserUpdateResponse;
-import dev.lest.GymRecorder.infrastructure.persistence.entitys.Users;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserUpdateMapper {
 
     public static User map(UserUpdateRequest userUpdateRequest) {
-        return User
-                .builder()
-                .name(userUpdateRequest.name())
-                .email(userUpdateRequest.email())
-                .password(userUpdateRequest.password())
-                .userRole(userUpdateRequest.userRole())
-                .build();
+        return new User(
+                userUpdateRequest.name(),
+                userUpdateRequest.email(),
+                userUpdateRequest.password(),
+                userUpdateRequest.userRole()
+        );
     }
 
-    public static UserUpdateResponse map(User users) {
+    public static User map(Long id) {
+        return new User(id);
+    }
+
+    public static UserUpdateResponse map(User user) {
         return UserUpdateResponse
                 .builder()
-                .name(users.getName())
-                .email(users.getEmail())
+                .name(user.getName())
+                .email(user.getEmail())
                 .build();
     }
 }

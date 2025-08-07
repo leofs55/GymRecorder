@@ -5,6 +5,6 @@ import lombok.Builder;
 
 @Builder
 public record TrainingDeleteResponse(String id,
-                                     String name,
+                                     String result,
                                      UserResponse userResponse) {
 }
