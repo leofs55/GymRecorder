@@ -3,9 +3,11 @@ package dev.lest.GymRecorder.infrastructure.mappers.users;
 import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserCreateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserCreateResponse;
+import dev.lest.GymRecorder.infrastructure.persistence.entitys.UsersEntity;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
-@Component
+@UtilityClass
 public class UserCreateMapper {
 
     public static User map(UserCreateRequest userCreateRequest) {
@@ -28,5 +30,6 @@ public class UserCreateMapper {
                 .email(user.getEmail())
                 .build();
     }
+
 
 }

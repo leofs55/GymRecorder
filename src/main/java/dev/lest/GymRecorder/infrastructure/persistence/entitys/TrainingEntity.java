@@ -18,14 +18,14 @@ import java.util.List;
 @Document(collection = "training")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Training {
+public class TrainingEntity {
 
     @Id
     private String id;
     private String name;
     private DayWeek dayWeek;
-    private List<Exercise> exercises;
+    private List<ExerciseEntity> exercises;
     private Duration duration;
-    private Users user;
+    private UsersEntity user;
 
 }

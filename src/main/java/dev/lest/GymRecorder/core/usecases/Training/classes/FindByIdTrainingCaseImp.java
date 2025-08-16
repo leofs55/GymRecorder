@@ -8,7 +8,7 @@ import dev.lest.GymRecorder.core.usecases.Users.interfaces.FindByIdUserCase;
 public class FindByIdTrainingCaseImp implements FindByIdTrainingCase {
 
     @Override
-    public Training execute(Long id) {
+    public Training execute(String id) {
         return null;
     }
 }

@@ -7,9 +7,10 @@ import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseCreat
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
-@Component
+@UtilityClass
 public class ExerciseCreateMapper {
 
     public static Exercise map(ExerciseCreateRequest exerciseCreateRequest) {

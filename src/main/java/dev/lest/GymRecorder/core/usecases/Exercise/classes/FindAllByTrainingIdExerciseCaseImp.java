@@ -8,7 +8,7 @@ import java.util.List;
 public class FindAllByTrainingIdExerciseCaseImp implements FindAllByTrainingIdExerciseCase {
 
     @Override
-    public List<Exercise> execute(Long trainingId) {
+    public List<Exercise> execute(String trainingId) {
         return List.of();
     }
 }

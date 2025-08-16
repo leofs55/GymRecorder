@@ -6,7 +6,7 @@ import dev.lest.GymRecorder.core.usecases.Users.interfaces.DeleteUserCase;
 public class DeleteUserCaseImp implements DeleteUserCase {
 
     @Override
-    public void execute(Long id, String password) {
-
+    public boolean execute(Long id, String password) {
+        return false;
     }
 }

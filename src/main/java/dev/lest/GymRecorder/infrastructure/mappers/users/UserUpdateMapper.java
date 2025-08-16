@@ -3,9 +3,10 @@ package dev.lest.GymRecorder.infrastructure.mappers.users;
 import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserUpdateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserUpdateResponse;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
-@Component
+@UtilityClass
 public class UserUpdateMapper {
 
     public static User map(UserUpdateRequest userUpdateRequest) {

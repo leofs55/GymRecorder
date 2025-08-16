@@ -6,7 +6,9 @@ import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseRespo
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
+import lombok.experimental.UtilityClass;
 
+@UtilityClass
 public class ExerciseMapper {
 
     public static ExerciseResponse map(Exercise exercise) {

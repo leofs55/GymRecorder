@@ -6,9 +6,10 @@ import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingDelet
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
-@Component
+@UtilityClass
 public class TrainingDeleteMapper {
 
     public static TrainingDeleteResponse map(Boolean value,

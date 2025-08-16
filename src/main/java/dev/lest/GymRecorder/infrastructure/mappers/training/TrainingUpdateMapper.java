@@ -13,12 +13,13 @@ import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseUpdateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserUpdateMapper;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Component
+@UtilityClass
 public class TrainingUpdateMapper {
 
     public static Training map(TrainingUpdateRequest trainingUpdateRequest) {

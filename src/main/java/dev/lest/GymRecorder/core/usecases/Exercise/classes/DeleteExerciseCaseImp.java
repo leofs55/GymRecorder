@@ -6,7 +6,7 @@ import dev.lest.GymRecorder.core.usecases.Training.interfaces.DeleteTrainingCase
 public class DeleteExerciseCaseImp implements DeleteExerciseCase {
 
     @Override
-    public void execute(Long id) {
-
+    public boolean execute(String id) {
+        return false;
     }
 }

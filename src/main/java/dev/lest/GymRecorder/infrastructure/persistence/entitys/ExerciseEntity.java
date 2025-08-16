@@ -3,6 +3,7 @@ package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -14,7 +15,8 @@ import java.time.Duration;
 @Document(collection = "exercise")
 @NoArgsConstructor
 @AllArgsConstructor
-public class Exercise {
+@Builder
+public class ExerciseEntity {
 
     @Id
     private String id;
@@ -25,6 +27,6 @@ public class Exercise {
     private Duration restTime;
     private String trainingId;
     @JsonIgnore
-    private Users user;
+    private UsersEntity user;
 
 }

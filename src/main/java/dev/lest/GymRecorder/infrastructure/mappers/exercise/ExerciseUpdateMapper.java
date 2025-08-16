@@ -8,9 +8,10 @@ import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserUpdateMapper;
+import lombok.experimental.UtilityClass;
 import org.springframework.stereotype.Component;
 
-@Component
+@UtilityClass
 public class ExerciseUpdateMapper {
 
     public static Exercise map(ExerciseUpdateRequest exerciseUpdateRequest) {
