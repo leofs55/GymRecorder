@@ -1,9 +1,7 @@
 package dev.lest.GymRecorder.infrastructure.dtos.responses.training;
 
 import dev.lest.GymRecorder.core.enuns.DayWeek;
-import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseUpdateResponse;
-import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserUpdateResponse;
 import lombok.Builder;
 

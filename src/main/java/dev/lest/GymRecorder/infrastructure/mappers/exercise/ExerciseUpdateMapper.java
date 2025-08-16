@@ -1,15 +1,11 @@
 package dev.lest.GymRecorder.infrastructure.mappers.exercise;
 
 import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
-import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.exercise.ExerciseUpdateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseUpdateResponse;
-import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
-import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserUpdateMapper;
 import lombok.experimental.UtilityClass;
-import org.springframework.stereotype.Component;
 
 @UtilityClass
 public class ExerciseUpdateMapper {

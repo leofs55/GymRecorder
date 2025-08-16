@@ -3,7 +3,6 @@ package dev.lest.GymRecorder.infrastructure.dtos.responses.training;
 import dev.lest.GymRecorder.core.enuns.DayWeek;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserCreateResponse;
-import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import lombok.Builder;
 
 import java.time.Duration;

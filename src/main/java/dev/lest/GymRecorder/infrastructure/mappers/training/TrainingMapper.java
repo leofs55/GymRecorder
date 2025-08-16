@@ -1,12 +1,9 @@
 package dev.lest.GymRecorder.infrastructure.mappers.training;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
 import dev.lest.GymRecorder.core.entities.Training.Training;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingResponse;
-import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
-import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
 import lombok.experimental.UtilityClass;
 
@@ -31,7 +28,6 @@ public class TrainingMapper {
                 .userResponse(UserMapper.map(training.getUser()))
                 .build();
     }
-
 
 
 }

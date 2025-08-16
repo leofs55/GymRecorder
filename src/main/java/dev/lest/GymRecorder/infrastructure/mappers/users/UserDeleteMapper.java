@@ -4,7 +4,6 @@ import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserDeleteRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserDeleteResponse;
 import lombok.experimental.UtilityClass;
-import org.springframework.stereotype.Component;
 
 @UtilityClass
 public class UserDeleteMapper {

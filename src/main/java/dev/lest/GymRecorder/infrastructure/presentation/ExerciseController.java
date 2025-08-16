@@ -38,7 +38,7 @@ public class ExerciseController {
 
     @DeleteMapping("detele/{id}")
     public ResponseEntity<ExerciseDeleteResponse> deleteEndPoint(@PathVariable String id) {
-        return ResponseEntity.ok(ExerciseDeleteMapper.map(deleteExercise.execute(id), id, new User() ));
+        return ResponseEntity.ok(ExerciseDeleteMapper.map(deleteExercise.execute(id), id, new User()));
     }
 
     @GetMapping("find-by/{id}")

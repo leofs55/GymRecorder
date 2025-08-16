@@ -36,7 +36,7 @@ public class UserController {
 
     @DeleteMapping("detele/{id}")
     public ResponseEntity<UserDeleteResponse> deleteEndPoint(@PathVariable Long id,
-                                             UserDeleteRequest userDeleteRequest) {
+                                                             UserDeleteRequest userDeleteRequest) {
         return ResponseEntity.ok(UserDeleteMapper.map(deleteUserCase.execute(id, userDeleteRequest.password()), id));
     }
 
@@ -47,7 +47,7 @@ public class UserController {
 
     @PatchMapping("update/{id}")
     public ResponseEntity<UserUpdateResponse> updateEndPoint(@PathVariable Long id,
-                                             @RequestBody UserUpdateRequest userUpdateRequest) {
+                                                             @RequestBody UserUpdateRequest userUpdateRequest) {
         return ResponseEntity.ok(UserUpdateMapper.map(updateUserCase.execute(UserUpdateMapper.map(userUpdateRequest))));
     }
 }

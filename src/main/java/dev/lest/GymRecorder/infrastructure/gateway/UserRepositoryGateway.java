@@ -26,7 +26,7 @@ public class UserRepositoryGateway implements UserGateway {
     }
 
     @Override
-    public User deleteUser(Long id, String password) {
+    public Boolean deleteUser(Long id, String password) {
         return null;
     }
 

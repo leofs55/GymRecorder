@@ -1,7 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.persistence.entitys;
 
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
 import dev.lest.GymRecorder.core.enuns.DayWeek;
 import jakarta.persistence.Id;
 import lombok.AllArgsConstructor;

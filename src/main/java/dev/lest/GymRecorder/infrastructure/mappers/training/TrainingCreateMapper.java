@@ -10,7 +10,6 @@ import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
 import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
-import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.stream.Collectors;
