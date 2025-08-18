@@ -1,7 +1,5 @@
-package dev.lest.GymRecorder.core.entities.Training;
+package dev.lest.GymRecorder.core.entities;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
-import dev.lest.GymRecorder.core.entities.Users.User;
 import dev.lest.GymRecorder.core.enuns.DayWeek;
 
 import java.time.Duration;

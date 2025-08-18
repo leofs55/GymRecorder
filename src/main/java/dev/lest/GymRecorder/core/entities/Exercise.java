@@ -1,6 +1,4 @@
-package dev.lest.GymRecorder.core.entities.Exercise;
-
-import dev.lest.GymRecorder.core.entities.Users.User;
+package dev.lest.GymRecorder.core.entities;
 
 import java.time.Duration;
 
