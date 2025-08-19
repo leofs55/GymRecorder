@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.core.gateway;
 
-import dev.lest.GymRecorder.core.entities.Users.User;
+import dev.lest.GymRecorder.core.entities.User;
 
 import java.util.Optional;
 

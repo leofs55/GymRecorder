@@ -1,8 +1,10 @@
 package dev.lest.GymRecorder.core.usecases.Users.interfaces;
 
-import dev.lest.GymRecorder.core.entities.Users.User;
+import dev.lest.GymRecorder.core.entities.User;
+
+import java.util.Optional;
 
 public interface FindByIdUserCase {
 
-    User execute(Long id);
+    Optional<User> execute(Long id);
 }
