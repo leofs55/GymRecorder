@@ -1,13 +1,16 @@
 package dev.lest.GymRecorder.infrastructure.gateway;
 
-import dev.lest.GymRecorder.core.entities.Training.Training;
+import dev.lest.GymRecorder.core.entities.Training;
 import dev.lest.GymRecorder.core.gateway.TrainingGateway;
+import dev.lest.GymRecorder.infrastructure.mappers.training.TrainingGatewayMapper;
+import dev.lest.GymRecorder.infrastructure.persistence.entitys.TrainingEntity;
 import dev.lest.GymRecorder.infrastructure.persistence.interfaces.TrainingRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -17,7 +20,9 @@ public class TrainingRepositoryGateway implements TrainingGateway {
 
     @Override
     public Training createTraining(Training training) {
-        return null;
+        TrainingEntity trainingToEntity = TrainingGatewayMapper.map(training);
+        TrainingEntity savedTrainigEntity = repository.save(trainingToEntity);
+        return TrainingGatewayMapper.map(savedTrainigEntity);
     }
 
     @Override
@@ -32,11 +37,15 @@ public class TrainingRepositoryGateway implements TrainingGateway {
 
     @Override
     public Optional<Training> findTrainingById(String id) {
-        return Optional.empty();
+        Optional<TrainingEntity> findedTrainingEntity = repository.findById(id);
+        return findedTrainingEntity.map(TrainingGatewayMapper::map);
     }
 
     @Override
     public List<Training> findAllTrainingByUserId(Long id) {
-        return List.of();
+        List<TrainingEntity> listOfFindedTrainingEntity = repository.findAllByUserId(id);
+        return listOfFindedTrainingEntity.stream()
+                .map(TrainingGatewayMapper::map)
+                .collect(Collectors.toList());
     }
 }

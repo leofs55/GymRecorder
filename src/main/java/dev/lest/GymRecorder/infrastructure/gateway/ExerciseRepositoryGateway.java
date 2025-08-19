@@ -1,13 +1,18 @@
 package dev.lest.GymRecorder.infrastructure.gateway;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
+import dev.lest.GymRecorder.core.entities.Exercise;
 import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
+import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseGatewayMapper;
+import dev.lest.GymRecorder.infrastructure.mappers.training.TrainingGatewayMapper;
+import dev.lest.GymRecorder.infrastructure.persistence.entitys.ExerciseEntity;
+import dev.lest.GymRecorder.infrastructure.persistence.entitys.TrainingEntity;
 import dev.lest.GymRecorder.infrastructure.persistence.interfaces.ExerciseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -16,12 +21,14 @@ public class ExerciseRepositoryGateway implements ExerciseGateway {
     private final ExerciseRepository repository;
 
     @Override
-    public Exercise createExercise(Exercise training) {
-        return null;
+    public Exercise createExercise(Exercise exercise) {
+        ExerciseEntity exerciseToEntity = ExerciseGatewayMapper.map(exercise);
+        ExerciseEntity savedExerciseEntity = repository.save(exerciseToEntity);
+        return ExerciseGatewayMapper.map(savedExerciseEntity);
     }
 
     @Override
-    public Exercise updateExercise(Exercise training) {
+    public Exercise updateExercise(Exercise exercise) {
         return null;
     }
 
@@ -32,16 +39,23 @@ public class ExerciseRepositoryGateway implements ExerciseGateway {
 
     @Override
     public Optional<Exercise> findExerciseById(String id) {
-        return Optional.empty();
+        Optional<ExerciseEntity> exerciseToEntity = repository.findById(id);
+        return exerciseToEntity.map(ExerciseGatewayMapper::map);
     }
 
     @Override
-    public List<Exercise> findAllExerciseByTrainingId(Long id) {
-        return List.of();
+    public List<Exercise> findAllExerciseByTrainingId(String id) {
+        List<ExerciseEntity> exerciseEntityList = repository.findAllByTrainingId(id);
+        return exerciseEntityList.stream()
+                .map(ExerciseGatewayMapper::map)
+                .collect(Collectors.toList());
     }
 
     @Override
     public List<Exercise> findAllExerciseByUserId(Long id) {
-        return List.of();
+        List<ExerciseEntity> exerciseEntityList = repository.findAllByUserId(id);
+        return exerciseEntityList.stream()
+                .map(ExerciseGatewayMapper::map)
+                .collect(Collectors.toList());
     }
 }
