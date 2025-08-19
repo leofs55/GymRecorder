@@ -1,6 +1,6 @@
-package dev.lest.GymRecorder.infrastructure.presentation;
+package dev.lest.GymRecorder.infrastructure.persistence.presentation;
 
-import dev.lest.GymRecorder.core.entities.Users.User;
+import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.usecases.Training.interfaces.*;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.training.TrainingCreateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.training.TrainingUpdateRequest;
