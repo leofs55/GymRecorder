@@ -1,4 +1,4 @@
-package dev.lest.GymRecorder.infrastructure.persistence.presentation;
+package dev.lest.GymRecorder.infrastructure.presentation;
 
 import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.usecases.Training.interfaces.*;

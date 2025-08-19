@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.mappers.users;
 
-import dev.lest.GymRecorder.core.entities.Users.User;
+import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserCreateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserCreateResponse;
 import lombok.experimental.UtilityClass;
@@ -24,8 +24,10 @@ public class UserCreateMapper {
     public static UserCreateResponse map(User user) {
         return UserCreateResponse
                 .builder()
+                .id(user.getId())
                 .name(user.getName())
                 .email(user.getEmail())
+                .userRole(user.getUserRole())
                 .build();
     }
 

@@ -1,7 +1,7 @@
 package dev.lest.GymRecorder.infrastructure.mappers.training;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
-import dev.lest.GymRecorder.core.entities.Training.Training;
+import dev.lest.GymRecorder.core.entities.Exercise;
+import dev.lest.GymRecorder.core.entities.Training;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.training.TrainingCreateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingCreateResponse;
@@ -15,7 +15,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @UtilityClass
-@RequiredArgsConstructor
 public class TrainingCreateMapper {
 
     public static Training map(TrainingCreateRequest trainingCreateRequest) {

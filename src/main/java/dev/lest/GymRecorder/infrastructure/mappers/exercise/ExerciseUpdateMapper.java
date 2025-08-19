@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.mappers.exercise;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
+import dev.lest.GymRecorder.core.entities.Exercise;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.exercise.ExerciseUpdateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseUpdateResponse;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserExerciseMapper;

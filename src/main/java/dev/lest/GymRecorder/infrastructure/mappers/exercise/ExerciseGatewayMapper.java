@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.mappers.exercise;
 
-import dev.lest.GymRecorder.core.entities.Exercise.Exercise;
+import dev.lest.GymRecorder.core.entities.Exercise;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserGatewayMapper;
 import dev.lest.GymRecorder.infrastructure.persistence.entitys.ExerciseEntity;
 import lombok.experimental.UtilityClass;

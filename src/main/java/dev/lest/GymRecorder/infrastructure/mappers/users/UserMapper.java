@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.mappers.users;
 
-import dev.lest.GymRecorder.core.entities.Users.User;
+import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserResponse;
 import lombok.experimental.UtilityClass;
 

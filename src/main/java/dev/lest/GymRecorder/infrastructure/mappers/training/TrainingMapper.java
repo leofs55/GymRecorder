@@ -1,6 +1,6 @@
 package dev.lest.GymRecorder.infrastructure.mappers.training;
 
-import dev.lest.GymRecorder.core.entities.Training.Training;
+import dev.lest.GymRecorder.core.entities.Training;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.exercise.ExerciseResponse;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingResponse;
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
