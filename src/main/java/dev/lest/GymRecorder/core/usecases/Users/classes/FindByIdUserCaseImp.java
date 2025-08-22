@@ -3,6 +3,7 @@ package dev.lest.GymRecorder.core.usecases.Users.classes;
 import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.interfaces.FindByIdUserCase;
+import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
 
 import java.util.Optional;
 
@@ -17,6 +18,6 @@ public class FindByIdUserCaseImp implements FindByIdUserCase {
     @Override
     public User execute(Long id) {
        return userGateway.findUserById(id).
-               orElseThrow(() -> new RuntimeException("User not found!")); //TODO: Criar Exception especifica.
+               orElseThrow(() -> new UserNotFoundException("User Error: User not found!")); //TODO: Criar Exception especifica.
     }
 }

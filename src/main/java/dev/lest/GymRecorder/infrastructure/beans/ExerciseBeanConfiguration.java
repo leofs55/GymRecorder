@@ -20,8 +20,8 @@ public class ExerciseBeanConfiguration {
     }
 
     @Bean
-    public FindAllByUserIdExerciseCaseImp findAllByUserIdExerciseCaseImp(ExerciseGateway exerciseGateway) {
-        return new FindAllByUserIdExerciseCaseImp(exerciseGateway);
+    public FindAllByUserIdExerciseCaseImp findAllByUserIdExerciseCaseImp(ExerciseGateway exerciseGateway, UserGateway userGateway) {
+        return new FindAllByUserIdExerciseCaseImp(exerciseGateway, userGateway);
     }
 
     @Bean

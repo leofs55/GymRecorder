@@ -18,6 +18,7 @@ public class FindByIdExerciseCaseImp implements FindByIdExerciseCase {
         try {
             return exerciseGateway.findExerciseById(id)
                     .orElseThrow( () -> new ExerciseNotFoundException("Exercise Error: Exercise not exist!"));
+
         } catch (ExerciseNotFoundException e) {
             throw new ExerciseNotFoundException(e.getLocalizedMessage(), e);
         }

@@ -8,9 +8,10 @@ import dev.lest.GymRecorder.core.gateway.TrainingGateway;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Exercise.classes.FindAllExerciseByListIdCaseImp;
 import dev.lest.GymRecorder.core.usecases.Training.interfaces.CreateTrainingCase;
+import dev.lest.GymRecorder.infrastructure.exception.Exercise.ExerciseNotFoundInFindAllByListIdException;
+import dev.lest.GymRecorder.infrastructure.exception.Training.UserNotFoundTrainingCreateException;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class CreateTrainingCaseImp implements CreateTrainingCase {
 
@@ -34,12 +35,19 @@ public class CreateTrainingCaseImp implements CreateTrainingCase {
             }
 
             User user = userGateway.findUserById(training.getUser().getId())
-                    .orElseThrow( () -> new RuntimeException("Training creation failed! User not exist!") );
+                    .orElseThrow( () -> new UserNotFoundTrainingCreateException("Training Error: Training creation failed! User not exist!") );
             training.setUser(user);
 
             return trainingGateway.createTraining(training); //TODO: Criar Exception especifica.
+
+        } catch (ExerciseNotFoundInFindAllByListIdException e) {
+            throw new ExerciseNotFoundInFindAllByListIdException("Training Error: "+e.getLocalizedMessage(), e);
+
+        } catch (UserNotFoundTrainingCreateException e) {
+            throw new UserNotFoundTrainingCreateException(e.getLocalizedMessage(), e);
+
         } catch (RuntimeException e) {
-            throw new RuntimeException(e);
+            throw new RuntimeException("Training Error: Something in Creation Training Failed!");
         }
     }
 }

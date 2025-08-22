@@ -23,7 +23,7 @@ public class DeleteExerciseCaseImp implements DeleteExerciseCase {
         } catch (UserNotFoundInExerciseDeleteException e) {
             throw new UserNotFoundInExerciseDeleteException(e.getLocalizedMessage(), e);
         } catch (RuntimeException e) {
-            throw new RuntimeException("Exercise Error: Something in Creation Exercise Failed!",e);
+            throw new RuntimeException("Exercise Error: Something in Delete Exercise Failed!",e);
         }
     }
 }

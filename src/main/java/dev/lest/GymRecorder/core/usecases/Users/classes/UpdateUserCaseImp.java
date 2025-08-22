@@ -4,6 +4,8 @@ import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.enuns.Role;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.interfaces.UpdateUserCase;
+import dev.lest.GymRecorder.infrastructure.exception.User.UserEmailAlreayExistException;
+import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
 
 public class UpdateUserCaseImp implements UpdateUserCase {
 
@@ -17,7 +19,7 @@ public class UpdateUserCaseImp implements UpdateUserCase {
     public User execute(User user) {
         try {
             User userToUpdate = userGateway.findUserById(user.getId())
-                    .orElseThrow( () -> new RuntimeException("User search for editing failed, user does not exist!"));
+                    .orElseThrow(() -> new UserNotFoundException("User search for editing failed, user does not exist!"));
 
             String name = (user.getName() == null) ? userToUpdate.getName() : user.getName();
             String email = (user.getEmail() == null) ? userToUpdate.getEmail() : user.getEmail();
@@ -25,16 +27,20 @@ public class UpdateUserCaseImp implements UpdateUserCase {
             Role userRole = (user.getUserRole() == null) ? userToUpdate.getUserRole() : user.getUserRole();
 
             if (userGateway.existsByEmail(email)) {
-                throw new RuntimeException("User editing failed, email already exist!");
+                throw new UserEmailAlreayExistException("User editing failed, email already exist!");
             }
 
             User newUser = new User(user.getId(), name, email, password, userRole);
             return userGateway.updateUser(newUser);
 
-        } catch (Exception e) {
+        } catch (UserNotFoundException e) {
+            throw new UserNotFoundException(e.getLocalizedMessage(), e);
 
-            throw new RuntimeException("User cannot be updated because he doesn't exist!"); //TODO: Criar Exception especifica.
+        } catch (UserEmailAlreayExistException e) {
+            throw new UserEmailAlreayExistException(e.getLocalizedMessage(), e); //TODO: Criar Exception especifica.
 
+        } catch (RuntimeException e) {
+            throw new RuntimeException("User Error: Something in Updade User failed!", e);
         }
     }
 }

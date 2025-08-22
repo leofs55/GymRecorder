@@ -4,6 +4,7 @@ import dev.lest.GymRecorder.core.entities.Training;
 import dev.lest.GymRecorder.core.gateway.TrainingGateway;
 import dev.lest.GymRecorder.core.usecases.Training.interfaces.DeleteTrainingCase;
 import dev.lest.GymRecorder.core.usecases.Users.classes.FindByIdUserCaseImp;
+import dev.lest.GymRecorder.infrastructure.exception.Training.TrainingNotFoundException;
 
 public class DeleteTrainingCaseImp implements DeleteTrainingCase {
 
@@ -17,12 +18,17 @@ public class DeleteTrainingCaseImp implements DeleteTrainingCase {
     public Boolean execute(String id) {
         try {
             if (!trainingGateway.existsById(id)) {
-                throw new RuntimeException("Training search for delete failed, Training does not exist!");
+                throw new TrainingNotFoundException("Training search for delete failed, Training does not exist!");
             }
+
             trainingGateway.deleteTraining(id);
             return true;
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+
+        } catch (TrainingNotFoundException e) {
+            throw new TrainingNotFoundException(e.getLocalizedMessage(), e);
+
+        } catch (RuntimeException e) {
+            throw new RuntimeException("" ,e);
         }
     }
 }

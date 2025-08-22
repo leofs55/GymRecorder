@@ -23,6 +23,7 @@ public class FindAllExerciseByListIdCaseImp implements FindAllExerciseByListIdCa
                     .map(Exercise::getId)
                     .collect(Collectors.toList());
             return exerciseGateway.findAllExerciseByListId(listId);
+
         } catch (ExerciseNotFoundInFindAllByListIdException e) {
             throw new ExerciseNotFoundInFindAllByListIdException("Error Exercise: Some id in list of exercise's, does not exist!", e);
         }
