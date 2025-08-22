@@ -14,6 +14,13 @@ public class CreateUserCaseImp implements CreateUserCase {
 
     @Override
     public User execute(User user) {
-        return userGateway.createUser(user);
+        try {
+            if (userGateway.existsByEmail(user.getEmail())) {
+                throw new RuntimeException("User creation failed! The email ia already exist!");
+            }
+            return userGateway.createUser(user); //TODO: Criar Exception especifica.
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }

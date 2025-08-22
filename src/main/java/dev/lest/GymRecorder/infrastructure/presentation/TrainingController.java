@@ -57,6 +57,6 @@ public class TrainingController {
     @PatchMapping("update/{id}")
     public ResponseEntity<TrainingUpdateResponse> updateEndPoint(@PathVariable String id,
                                                  @RequestBody TrainingUpdateRequest trainingUpdateRequest) {
-        return ResponseEntity.ok(TrainingUpdateMapper.map(updateTraining.execute(TrainingUpdateMapper.map(trainingUpdateRequest))));
+        return ResponseEntity.ok(TrainingUpdateMapper.map(updateTraining.execute(TrainingUpdateMapper.map(trainingUpdateRequest, id))));
     }
 }

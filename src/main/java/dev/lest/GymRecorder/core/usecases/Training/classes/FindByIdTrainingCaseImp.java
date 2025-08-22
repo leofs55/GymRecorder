@@ -14,6 +14,7 @@ public class FindByIdTrainingCaseImp implements FindByIdTrainingCase {
 
     @Override
     public Training execute(String id) {
-        return null;
+        return trainingGateway.findTrainingById(id)
+                .orElseThrow( () -> new RuntimeException("Training not exist")); //TODO: Criar Exception especifica.
     }
 }

@@ -16,7 +16,6 @@ public class ExerciseGatewayMapper {
                 exerciseEntity.getSets(),
                 exerciseEntity.getWeight(),
                 exerciseEntity.getRestTime(),
-                exerciseEntity.getTrainingId(),
                 UserGatewayMapper.map(exerciseEntity.getUser())
         );
     }

@@ -1,6 +1,7 @@
 package dev.lest.GymRecorder.core.usecases.Users.classes;
 
 import dev.lest.GymRecorder.core.entities.User;
+import dev.lest.GymRecorder.core.enuns.Role;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.interfaces.UpdateUserCase;
 
@@ -14,6 +15,26 @@ public class UpdateUserCaseImp implements UpdateUserCase {
 
     @Override
     public User execute(User user) {
-        return null;
+        try {
+            User userToUpdate = userGateway.findUserById(user.getId())
+                    .orElseThrow( () -> new RuntimeException("User search for editing failed, user does not exist!"));
+
+            String name = (user.getName() == null) ? userToUpdate.getName() : user.getName();
+            String email = (user.getEmail() == null) ? userToUpdate.getEmail() : user.getEmail();
+            String password = (user.getPassword() == null) ? userToUpdate.getPassword() : user.getPassword();
+            Role userRole = (user.getUserRole() == null) ? userToUpdate.getUserRole() : user.getUserRole();
+
+            if (userGateway.existsByEmail(email)) {
+                throw new RuntimeException("User editing failed, email already exist!");
+            }
+
+            User newUser = new User(user.getId(), name, email, password, userRole);
+            return userGateway.updateUser(newUser);
+
+        } catch (Exception e) {
+
+            throw new RuntimeException("User cannot be updated because he doesn't exist!"); //TODO: Criar Exception especifica.
+
+        }
     }
 }

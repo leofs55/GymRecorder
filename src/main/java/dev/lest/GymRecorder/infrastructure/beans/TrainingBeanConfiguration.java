@@ -1,16 +1,19 @@
 package dev.lest.GymRecorder.infrastructure.beans;
 
+import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
 import dev.lest.GymRecorder.core.gateway.TrainingGateway;
+import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Training.classes.*;
-import dev.lest.GymRecorder.core.usecases.Training.interfaces.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class TrainingBeanConfiguration {
     @Bean
-    public CreateTrainingCaseImp createTrainingCaseImp(TrainingGateway trainingGateway){
-        return new CreateTrainingCaseImp(trainingGateway);
+    public CreateTrainingCaseImp createTrainingCaseImp(TrainingGateway trainingGateway,
+                                                       ExerciseGateway exerciseGateway,
+                                                       UserGateway userGateway){
+        return new CreateTrainingCaseImp(trainingGateway, exerciseGateway, userGateway);
     }
 
     @Bean
@@ -29,8 +32,9 @@ public class TrainingBeanConfiguration {
     }
 
     @Bean
-    public UpdateTrainingCaseImp updateTrainingCaseImp(TrainingGateway trainingGateway){
-        return new UpdateTrainingCaseImp(trainingGateway);
+    public UpdateTrainingCaseImp updateTrainingCaseImp(TrainingGateway trainingGateway,
+                                                       ExerciseGateway exerciseGateway){
+        return new UpdateTrainingCaseImp(trainingGateway, exerciseGateway);
     }
 
 }

@@ -3,9 +3,7 @@ package dev.lest.GymRecorder.infrastructure.gateway;
 import dev.lest.GymRecorder.core.entities.Exercise;
 import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseGatewayMapper;
-import dev.lest.GymRecorder.infrastructure.mappers.training.TrainingGatewayMapper;
 import dev.lest.GymRecorder.infrastructure.persistence.entitys.ExerciseEntity;
-import dev.lest.GymRecorder.infrastructure.persistence.entitys.TrainingEntity;
 import dev.lest.GymRecorder.infrastructure.persistence.interfaces.ExerciseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
@@ -29,12 +27,14 @@ public class ExerciseRepositoryGateway implements ExerciseGateway {
 
     @Override
     public Exercise updateExercise(Exercise exercise) {
-        return null;
+        ExerciseEntity exerciseToEntity = ExerciseGatewayMapper.map(exercise);
+        ExerciseEntity savedExerciseEntity = repository.save(exerciseToEntity);
+        return ExerciseGatewayMapper.map(savedExerciseEntity);
     }
 
     @Override
-    public Boolean deleteExercise(String id) {
-        return null;
+    public void deleteExercise(String id) {
+        repository.deleteById(id);
     }
 
     @Override
@@ -44,18 +44,22 @@ public class ExerciseRepositoryGateway implements ExerciseGateway {
     }
 
     @Override
-    public List<Exercise> findAllExerciseByTrainingId(String id) {
-        List<ExerciseEntity> exerciseEntityList = repository.findAllByTrainingId(id);
+    public List<Exercise> findAllExerciseByUserId(Long id) {
+        List<ExerciseEntity> exerciseEntityList = repository.findAllByUserId(id);
         return exerciseEntityList.stream()
                 .map(ExerciseGatewayMapper::map)
                 .collect(Collectors.toList());
     }
 
     @Override
-    public List<Exercise> findAllExerciseByUserId(Long id) {
-        List<ExerciseEntity> exerciseEntityList = repository.findAllByUserId(id);
-        return exerciseEntityList.stream()
+    public List<Exercise> findAllExerciseByListId(List<String> idList) {
+        return repository.findByIdIn(idList).stream()
                 .map(ExerciseGatewayMapper::map)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean existsById(String id) {
+        return repository.existsById(id);
     }
 }

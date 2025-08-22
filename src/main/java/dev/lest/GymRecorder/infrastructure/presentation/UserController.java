@@ -16,12 +16,14 @@ import dev.lest.GymRecorder.infrastructure.mappers.users.UserDeleteMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserUpdateMapper;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/user/")
 @RequiredArgsConstructor
+@Slf4j
 public class UserController {
 
     private final CreateUserCase createUserCase;
@@ -48,6 +50,6 @@ public class UserController {
     @PatchMapping("update/{id}")
     public ResponseEntity<UserUpdateResponse> updateEndPoint(@PathVariable Long id,
                                                              @RequestBody UserUpdateRequest userUpdateRequest) {
-        return ResponseEntity.ok(UserUpdateMapper.map(updateUserCase.execute(UserUpdateMapper.map(userUpdateRequest))));
+        return ResponseEntity.ok(UserUpdateMapper.map(updateUserCase.execute(UserUpdateMapper.map(userUpdateRequest, id))));
     }
 }

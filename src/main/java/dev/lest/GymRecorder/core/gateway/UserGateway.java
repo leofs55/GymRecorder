@@ -8,7 +8,9 @@ public interface UserGateway {
 
     User createUser(User user);
     Optional<User> findUserById(Long userId);
-    Boolean deleteUser(Long id, String password);
+    void deleteUser(Long id);
     User updateUser(User user);
+    Boolean existsByEmail(String email);
+    Boolean existsById(Long id);
 
 }

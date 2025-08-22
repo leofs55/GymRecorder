@@ -16,6 +16,6 @@ public class FindAllByUserIdTrainingCaseImp implements FindAllByUserIdTrainingCa
 
     @Override
     public List<Training> execute(Long userId) {
-        return List.of();
+        return trainingGateway.findAllTrainingByUserId(userId);
     }
 }

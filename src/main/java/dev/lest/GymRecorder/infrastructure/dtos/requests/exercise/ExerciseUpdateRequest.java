@@ -7,6 +7,5 @@ public record ExerciseUpdateRequest(String name,
                                     Integer sets,
                                     Double weight,
                                     Duration restTime,
-                                    String trainingId,
                                     Long userId) {
 }

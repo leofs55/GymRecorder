@@ -15,7 +15,6 @@ public class ExerciseMapper {
                 .sets(exercise.getSets())
                 .weight(exercise.getWeight())
                 .restTime(exercise.getRestTime())
-                .trainingId(exercise.getTrainingId())
                 .userResponse(UserExerciseMapper.map(exercise.getUser()))
                 .build();
     }

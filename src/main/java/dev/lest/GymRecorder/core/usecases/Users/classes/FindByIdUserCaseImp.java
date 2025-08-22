@@ -15,7 +15,8 @@ public class FindByIdUserCaseImp implements FindByIdUserCase {
     }
 
     @Override
-    public Optional<User> execute(Long id) {
-       return userGateway.findUserById(id);
+    public User execute(Long id) {
+       return userGateway.findUserById(id).
+               orElseThrow(() -> new RuntimeException("User not found!")); //TODO: Criar Exception especifica.
     }
 }

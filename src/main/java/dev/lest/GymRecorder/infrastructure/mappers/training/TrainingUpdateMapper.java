@@ -15,13 +15,14 @@ import java.util.stream.Collectors;
 @UtilityClass
 public class TrainingUpdateMapper {
 
-    public static Training map(TrainingUpdateRequest trainingUpdateRequest) {
+    public static Training map(TrainingUpdateRequest trainingUpdateRequest, String id) {
 
         List<Exercise> exerciseList = trainingUpdateRequest.exerciseResponseList().stream()
                 .map(ExerciseUpdateMapper::map)
                 .collect(Collectors.toList());
 
         return new Training(
+                id,
                 trainingUpdateRequest.name(),
                 trainingUpdateRequest.dayWeek(),
                 exerciseList,

@@ -27,12 +27,14 @@ public class TrainingRepositoryGateway implements TrainingGateway {
 
     @Override
     public Training updateTraining(Training training) {
-        return null;
+        TrainingEntity trainingToEntity = TrainingGatewayMapper.map(training);
+        TrainingEntity savedTrainigEntity = repository.save(trainingToEntity);
+        return TrainingGatewayMapper.map(savedTrainigEntity);
     }
 
     @Override
-    public Boolean deleteTraining(String id) {
-        return null;
+    public void deleteTraining(String id) {
+        repository.deleteById(id);
     }
 
     @Override
@@ -47,5 +49,10 @@ public class TrainingRepositoryGateway implements TrainingGateway {
         return listOfFindedTrainingEntity.stream()
                 .map(TrainingGatewayMapper::map)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Boolean existsById(String id) {
+        return repository.existsById(id);
     }
 }

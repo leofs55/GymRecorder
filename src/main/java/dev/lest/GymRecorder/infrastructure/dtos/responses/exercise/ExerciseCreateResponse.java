@@ -12,6 +12,5 @@ public record ExerciseCreateResponse(String id,
                                      Integer sets,
                                      Double weight,
                                      Duration restTime,
-                                     String traininId,
                                      UserExerciseResponse userResponse) {
 }

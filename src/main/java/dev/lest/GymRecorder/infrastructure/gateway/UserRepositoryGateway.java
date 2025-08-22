@@ -20,10 +20,26 @@ public class UserRepositoryGateway implements UserGateway {
 
     @Override
     public User createUser(User user) {
-        log.info(user.toString());
         UsersEntity usersToEntity = UserGatewayMapper.map(user);
         UsersEntity savedUsersEntity = repository.save(usersToEntity);
         return UserGatewayMapper.map(savedUsersEntity);
+    }
+
+    @Override
+    public User updateUser(User user) {
+        UsersEntity usersToEntity = UserGatewayMapper.map(user);
+        UsersEntity savedUsersEntity = repository.save(usersToEntity);
+        return UserGatewayMapper.map(savedUsersEntity);
+    }
+
+    @Override
+    public Boolean existsByEmail(String email) {
+        return repository.existsByEmail(email);
+    }
+
+    @Override
+    public Boolean existsById(Long id) {
+        return repository.existsById(id);
     }
 
     @Override
@@ -33,15 +49,8 @@ public class UserRepositoryGateway implements UserGateway {
     }
 
     @Override
-    public Boolean deleteUser(Long id, String password) {
-        return null;
-    }
-
-    @Override
-    public User updateUser(User user) {
-        UsersEntity usersToEntity = UserGatewayMapper.map(user);
-        UsersEntity savedUsersEntity = repository.save(usersToEntity);
-        return UserGatewayMapper.map(savedUsersEntity);
+    public void deleteUser(Long id) {
+        repository.deleteById(id);
     }
 }
 

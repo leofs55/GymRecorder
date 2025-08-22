@@ -17,7 +17,6 @@ public class ExerciseUpdateMapper {
                 exerciseUpdateRequest.sets(),
                 exerciseUpdateRequest.weight(),
                 exerciseUpdateRequest.restTime(),
-                exerciseUpdateRequest.trainingId(),
                 UserUpdateMapper.map(exerciseUpdateRequest.userId())
         );
     }
@@ -30,7 +29,6 @@ public class ExerciseUpdateMapper {
                 .sets(exercise.getSets())
                 .weight(exercise.getWeight())
                 .restTime(exercise.getRestTime())
-                .traininId(exercise.getTrainingId())
                 .userResponse(UserExerciseMapper.map(exercise.getUser()))
                 .build();
     }

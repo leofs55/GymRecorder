@@ -9,8 +9,9 @@ public interface TrainingGateway {
 
     Training createTraining(Training training);
     Training updateTraining(Training training);
-    Boolean deleteTraining(String id);
+    void deleteTraining(String id);
     Optional<Training> findTrainingById(String id);
     List<Training> findAllTrainingByUserId(Long id);
+    Boolean existsById(String id);
 
 }

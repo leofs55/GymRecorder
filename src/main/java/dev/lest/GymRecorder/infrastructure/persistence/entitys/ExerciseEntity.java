@@ -25,7 +25,6 @@ public class ExerciseEntity {
     private Integer sets;
     private Double weight;
     private Duration restTime;
-    private String trainingId;
     @JsonIgnore
     private UsersEntity user;
 

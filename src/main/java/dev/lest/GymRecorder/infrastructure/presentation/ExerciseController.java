@@ -16,7 +16,9 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @RestController
@@ -26,14 +28,19 @@ public class ExerciseController {
 
     private final CreateExerciseCase createExercise;
     private final DeleteExerciseCase deleteExercise;
-    private final FindAllByTrainingIdExerciseCase findAllByTrainingIdExercise;
     private final FindAllByUserIdExerciseCase findAllByUserIdExercise;
     private final FindByIdExerciseCase findByIdExercise;
     private final UpdateExerciseCase updateExercise;
 
     @PostMapping("create")
-    public ResponseEntity<ExerciseCreateResponse> createEndPoint(@RequestBody ExerciseCreateRequest exerciseCreateRequest) {
-        return ResponseEntity.ok(ExerciseCreateMapper.map(createExercise.execute(ExerciseCreateMapper.map(exerciseCreateRequest))));
+    public ResponseEntity<Map<String, Object>> createEndPoint(@RequestBody ExerciseCreateRequest exerciseCreateRequest) {
+        ExerciseCreateResponse exerciseCreateResponse = ExerciseCreateMapper.map(
+                createExercise.execute(ExerciseCreateMapper.map(exerciseCreateRequest))
+        );
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "Exercice created with sucess!");
+        responseHashMap.put("Exercise:", exerciseCreateResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @DeleteMapping("detele/{id}")
@@ -46,15 +53,6 @@ public class ExerciseController {
         return ResponseEntity.ok(ExerciseMapper.map(findByIdExercise.execute(id)));
     }
 
-    @GetMapping("find-by/{trainingId}")
-    public ResponseEntity<List<ExerciseResponse>> findAllByTrainingIdEndPoint(@PathVariable String id) {
-        List<ExerciseResponse> exerciseResponses = findAllByTrainingIdExercise.execute(id).stream()
-                .map(ExerciseMapper::map)
-                .collect(Collectors.toList());
-
-        return ResponseEntity.ok(exerciseResponses);
-    }
-
     @GetMapping("find-by/{userId}")
     public ResponseEntity<List<ExerciseResponse>> findAllByUserIdEndPoint(@PathVariable Long id) {
         List<ExerciseResponse> exerciseResponses = findAllByUserIdExercise.execute(id).stream()
@@ -65,7 +63,8 @@ public class ExerciseController {
     }
 
     @PatchMapping("update/{id}")
-    public ResponseEntity<ExerciseUpdateResponse> updateEndPoint(@RequestBody ExerciseUpdateRequest exerciseUpdateRequest) {
+    public ResponseEntity<ExerciseUpdateResponse> updateEndPoint(@PathVariable String id,
+                                                                 @RequestBody ExerciseUpdateRequest exerciseUpdateRequest) {
         return ResponseEntity.ok(ExerciseUpdateMapper.map(updateExercise.execute(ExerciseUpdateMapper.map(exerciseUpdateRequest))));
     }
 

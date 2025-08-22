@@ -9,9 +9,10 @@ public interface ExerciseGateway {
 
     Exercise createExercise(Exercise training);
     Exercise updateExercise(Exercise training);
-    Boolean deleteExercise(String id);
+    void deleteExercise(String id);
     Optional<Exercise> findExerciseById(String id);
-    List<Exercise> findAllExerciseByTrainingId(String id);
     List<Exercise> findAllExerciseByUserId(Long id);
+    List<Exercise> findAllExerciseByListId(List<String> idList);
+    Boolean existsById(String id);
 
 }

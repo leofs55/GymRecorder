@@ -10,6 +10,5 @@ public record ExerciseCreateRequest(String name,
                                     Integer sets,
                                     Double weight,
                                     Duration restTime,
-                                    String trainingId,
                                     Long userId) {
 }

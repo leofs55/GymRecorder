@@ -4,8 +4,8 @@ import dev.lest.GymRecorder.core.entities.Exercise;
 
 import java.util.List;
 
-public interface FindAllByTrainingIdExerciseCase {
+public interface FindAllExerciseByListIdCase {
 
-    List<Exercise> execute(String trainingId);
+    List<Exercise> execute(List<Exercise> list);
 
 }

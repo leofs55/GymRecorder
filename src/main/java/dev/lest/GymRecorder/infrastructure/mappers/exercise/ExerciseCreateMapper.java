@@ -17,7 +17,6 @@ public class ExerciseCreateMapper {
                 exerciseCreateRequest.sets(),
                 exerciseCreateRequest.weight(),
                 exerciseCreateRequest.restTime(),
-                exerciseCreateRequest.trainingId(),
                 UserCreateMapper.map(exerciseCreateRequest.userId())
         );
     }
@@ -30,7 +29,6 @@ public class ExerciseCreateMapper {
                 .sets(exercise.getSets())
                 .weight(exercise.getWeight())
                 .restTime(exercise.getRestTime())
-                .traininId(exercise.getTrainingId())
                 .userResponse(UserExerciseMapper.map(exercise.getUser()))
                 .build();
     }

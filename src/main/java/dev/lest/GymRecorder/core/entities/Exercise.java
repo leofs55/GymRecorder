@@ -10,18 +10,16 @@ public class Exercise {
     private Integer sets;
     private Double weight;
     private Duration restTime;
-    private String trainingId;
     private User user;
 
     public Exercise(String id, String name, Integer repetitions, Integer sets, Double weight, Duration restTime,
-                    String trainingId, User user) {
+                    User user) {
         this.id = id;
         this.name = name;
         this.repetitions = repetitions;
         this.sets = sets;
         this.weight = weight;
         this.restTime = restTime;
-        this.trainingId = trainingId;
         this.user = user;
 
     }
@@ -30,13 +28,12 @@ public class Exercise {
     }
 
     public Exercise(String name, Integer repetitions, Integer sets,
-                    Double weight, Duration restTime, String trainingId, User user) {
+                    Double weight, Duration restTime, User user) {
         this.name = name;
         this.repetitions = repetitions;
         this.sets = sets;
         this.weight = weight;
         this.restTime = restTime;
-        this.trainingId = trainingId;
         this.user = user;
 
     }
@@ -91,14 +88,6 @@ public class Exercise {
 
     public void setRestTime(Duration restTime) {
         this.restTime = restTime;
-    }
-
-    public String getTrainingId() {
-        return trainingId;
-    }
-
-    public void setTrainingId(String trainingId) {
-        this.trainingId = trainingId;
     }
 
     public User getUser() {

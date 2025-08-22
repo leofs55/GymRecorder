@@ -6,5 +6,5 @@ import java.util.Optional;
 
 public interface FindByIdUserCase {
 
-    Optional<User> execute(Long id);
+    User execute(Long id);
 }

@@ -16,6 +16,10 @@ public class FindAllByUserIdExerciseCaseImp implements FindAllByUserIdExerciseCa
 
     @Override
     public List<Exercise> execute(Long userId) {
-        return List.of();
+        try {
+            return exerciseGateway.findAllExerciseByUserId(userId);
+        } catch (RuntimeException e) {
+            throw new RuntimeException("Exercise Error: Something for find all Exercise Failed by userId!", e);
+        }
     }
 }
