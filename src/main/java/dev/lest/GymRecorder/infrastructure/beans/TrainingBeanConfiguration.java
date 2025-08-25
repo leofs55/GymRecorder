@@ -22,8 +22,8 @@ public class TrainingBeanConfiguration {
     }
 
     @Bean
-    public FindAllByUserIdTrainingCaseImp findAllByUserIdTrainingCaseImp(TrainingGateway trainingGateway){
-        return new FindAllByUserIdTrainingCaseImp(trainingGateway);
+    public FindAllByUserIdTrainingCaseImp findAllByUserIdTrainingCaseImp(TrainingGateway trainingGateway, UserGateway userGateway){
+        return new FindAllByUserIdTrainingCaseImp(trainingGateway, userGateway);
     }
 
     @Bean
@@ -33,8 +33,9 @@ public class TrainingBeanConfiguration {
 
     @Bean
     public UpdateTrainingCaseImp updateTrainingCaseImp(TrainingGateway trainingGateway,
-                                                       ExerciseGateway exerciseGateway){
-        return new UpdateTrainingCaseImp(trainingGateway, exerciseGateway);
+                                                       ExerciseGateway exerciseGateway,
+                                                       UserGateway userGateway){
+        return new UpdateTrainingCaseImp(trainingGateway, exerciseGateway, userGateway);
     }
 
 }
