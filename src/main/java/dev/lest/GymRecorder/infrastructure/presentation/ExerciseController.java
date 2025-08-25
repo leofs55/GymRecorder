@@ -44,28 +44,43 @@ public class ExerciseController {
     }
 
     @DeleteMapping("detele/{id}")
-    public ResponseEntity<ExerciseDeleteResponse> deleteEndPoint(@PathVariable String id) {
-        return ResponseEntity.ok(ExerciseDeleteMapper.map(deleteExercise.execute(id), id, new User()));
+    public ResponseEntity<Map<String, Object>> deleteEndPoint(@PathVariable String id) {
+        ExerciseDeleteResponse exerciseDeleteResponse = ExerciseDeleteMapper.map(deleteExercise.execute(id), id, new User());
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", exerciseDeleteResponse.result());
+        responseHashMap.put("Exercise:", exerciseDeleteResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @GetMapping("find-by/{id}")
-    public ResponseEntity<ExerciseResponse> findByIdEndPoint(@PathVariable String id) {
-        return ResponseEntity.ok(ExerciseMapper.map(findByIdExercise.execute(id)));
+    public ResponseEntity<Map<String, Object>> findByIdEndPoint(@PathVariable String id) {
+        ExerciseResponse exerciseResponse = ExerciseMapper.map(findByIdExercise.execute(id));
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "Exercice found with sucess!");
+        responseHashMap.put("Exercise:", exerciseResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @GetMapping("find-by/{userId}")
-    public ResponseEntity<List<ExerciseResponse>> findAllByUserIdEndPoint(@PathVariable Long id) {
+    public ResponseEntity<Map<String, Object>> findAllByUserIdEndPoint(@PathVariable Long id) {
         List<ExerciseResponse> exerciseResponses = findAllByUserIdExercise.execute(id).stream()
                 .map(ExerciseMapper::map)
                 .collect(Collectors.toList());
 
-        return ResponseEntity.ok(exerciseResponses);
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "All exercises of user found with sucess!");
+        responseHashMap.put("Exercise:", exerciseResponses);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @PatchMapping("update/{id}")
-    public ResponseEntity<ExerciseUpdateResponse> updateEndPoint(@PathVariable String id,
+    public ResponseEntity<Map<String, Object>> updateEndPoint(@PathVariable String id,
                                                                  @RequestBody ExerciseUpdateRequest exerciseUpdateRequest) {
-        return ResponseEntity.ok(ExerciseUpdateMapper.map(updateExercise.execute(ExerciseUpdateMapper.map(exerciseUpdateRequest))));
+        ExerciseUpdateResponse exerciseUpdateResponse = ExerciseUpdateMapper.map(updateExercise.execute(ExerciseUpdateMapper.map(exerciseUpdateRequest)));
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "Exercise updated with sucess!");
+        responseHashMap.put("Exercise:", exerciseUpdateResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
 }

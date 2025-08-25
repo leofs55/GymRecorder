@@ -1,6 +1,7 @@
 package dev.lest.GymRecorder.infrastructure.presentation.ControllerAdvices;
 
 import dev.lest.GymRecorder.infrastructure.exception.Exercise.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -16,7 +17,7 @@ public class ExerciseExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 
     @ExceptionHandler(ExerciseNotFoundInFindAllByListIdException.class)
@@ -24,7 +25,7 @@ public class ExerciseExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 
     @ExceptionHandler(UserDoesNotMatchForUpdateException.class)
@@ -32,15 +33,14 @@ public class ExerciseExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
-    }
+        return ResponseEntity.status(HttpStatus.FORBIDDEN).body(responseHashMap);    }
 
     @ExceptionHandler(UserNotFoundInExerciseCreationException.class)
     public ResponseEntity<Map<String, Object>> UserNotFoundInExerciseCreationExceptionHandler(UserNotFoundInExerciseCreationException exception) {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 
     @ExceptionHandler(UserNotFoundInExerciseDeleteException.class)
@@ -48,6 +48,8 @@ public class ExerciseExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
+
+
 }

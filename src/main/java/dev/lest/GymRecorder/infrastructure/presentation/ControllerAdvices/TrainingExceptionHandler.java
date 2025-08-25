@@ -2,6 +2,7 @@ package dev.lest.GymRecorder.infrastructure.presentation.ControllerAdvices;
 
 import dev.lest.GymRecorder.infrastructure.exception.Training.TrainingNotFoundException;
 import dev.lest.GymRecorder.infrastructure.exception.Training.UserNotFoundTrainingCreateException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -17,7 +18,7 @@ public class TrainingExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 
     @ExceptionHandler(UserNotFoundTrainingCreateException.class)
@@ -25,6 +26,6 @@ public class TrainingExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 }

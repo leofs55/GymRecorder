@@ -18,6 +18,9 @@ public class DeleteExerciseCaseImp implements DeleteExerciseCase {
             if (!exerciseGateway.existsById(id)) {
                 throw new UserNotFoundInExerciseDeleteException("Exercise Error: Exercise search for delete failed, exercise does not exist!");
             }
+
+            //TODO: Exception para verificar se o exercicio nao está associado a um treino
+
             exerciseGateway.deleteExercise(id);
             return true;
         } catch (UserNotFoundInExerciseDeleteException e) {

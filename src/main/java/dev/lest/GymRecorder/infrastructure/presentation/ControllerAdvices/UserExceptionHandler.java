@@ -3,6 +3,7 @@ package dev.lest.GymRecorder.infrastructure.presentation.ControllerAdvices;
 import dev.lest.GymRecorder.infrastructure.exception.User.PasswordDontMatchDeleteException;
 import dev.lest.GymRecorder.infrastructure.exception.User.UserEmailAlreayExistException;
 import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
@@ -18,7 +19,7 @@ public class UserExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(responseHashMap);
     }
 
     @ExceptionHandler(UserEmailAlreayExistException.class)
@@ -26,7 +27,7 @@ public class UserExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.CONFLICT).body(responseHashMap);
     }
 
     @ExceptionHandler(UserNotFoundException.class)
@@ -34,6 +35,6 @@ public class UserExceptionHandler {
         Map<String, Object> responseHashMap = new HashMap<>();
         responseHashMap.put("Message:", exception.getMessage());
         responseHashMap.put("Error:", exception.getStackTrace());
-        return ResponseEntity.ok(responseHashMap);
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseHashMap);
     }
 }

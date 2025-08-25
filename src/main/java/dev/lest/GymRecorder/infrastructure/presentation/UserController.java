@@ -20,6 +20,9 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @RestController
 @RequestMapping("api/v1/user/")
 @RequiredArgsConstructor
@@ -32,24 +35,40 @@ public class UserController {
     private final UpdateUserCase updateUserCase;
 
     @PostMapping("create")
-    public ResponseEntity<UserCreateResponse> createEndPoint(@RequestBody UserCreateRequest userCreateRequest) {
-        return ResponseEntity.ok(UserCreateMapper.map(createUserCase.execute(UserCreateMapper.map(userCreateRequest))));
+    public ResponseEntity<Map<String, Object>> createEndPoint(@RequestBody UserCreateRequest userCreateRequest) {
+        UserCreateResponse userCreateResponse = UserCreateMapper.map(createUserCase.execute(UserCreateMapper.map(userCreateRequest)));
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "User successfully created!");
+        responseHashMap.put("User:",userCreateResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @DeleteMapping("detele/{id}")
-    public ResponseEntity<UserDeleteResponse> deleteEndPoint(@PathVariable Long id,
+    public ResponseEntity<Map<String, Object>> deleteEndPoint(@PathVariable Long id,
                                                              UserDeleteRequest userDeleteRequest) {
-        return ResponseEntity.ok(UserDeleteMapper.map(deleteUserCase.execute(id, userDeleteRequest.password()), id));
+        UserDeleteResponse userDeleteResponse = UserDeleteMapper.map(deleteUserCase.execute(id, userDeleteRequest.password()), id);
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", userDeleteResponse.result());
+        responseHashMap.put("User:", userDeleteResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @GetMapping("find-by/{id}")
-    public ResponseEntity<UserResponse> findByIdEndPoint(@PathVariable Long id) {
-        return ResponseEntity.ok(UserMapper.map(findByIdUserCase.execute(id)));
+    public ResponseEntity<Map<String, Object>> findByIdEndPoint(@PathVariable Long id) {
+        UserResponse userResponse = UserMapper.map(findByIdUserCase.execute(id));
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:","User successfully found!");
+        responseHashMap.put("User:", userResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 
     @PatchMapping("update/{id}")
-    public ResponseEntity<UserUpdateResponse> updateEndPoint(@PathVariable Long id,
+    public ResponseEntity<Map<String, Object>> updateEndPoint(@PathVariable Long id,
                                                              @RequestBody UserUpdateRequest userUpdateRequest) {
-        return ResponseEntity.ok(UserUpdateMapper.map(updateUserCase.execute(UserUpdateMapper.map(userUpdateRequest, id))));
+        UserUpdateResponse userUpdateResponse = UserUpdateMapper.map(updateUserCase.execute(UserUpdateMapper.map(userUpdateRequest, id)));
+        Map<String, Object> responseHashMap = new HashMap<>();
+        responseHashMap.put("Message:", "User successfully updated!");
+        responseHashMap.put("User:", userUpdateResponse);
+        return ResponseEntity.ok(responseHashMap);
     }
 }
