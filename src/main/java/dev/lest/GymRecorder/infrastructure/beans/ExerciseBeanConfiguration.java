@@ -35,7 +35,7 @@ public class ExerciseBeanConfiguration {
     }
 
     @Bean
-    public FindAllExerciseByListIdCaseImp findAllExerciseByListIdCaseImp(ExerciseGateway exerciseGateway) {
-        return new FindAllExerciseByListIdCaseImp(exerciseGateway);
+    public FindAllByListIdExerciseCaseImp findAllExerciseByListIdCaseImp(ExerciseGateway exerciseGateway) {
+        return new FindAllByListIdExerciseCaseImp(exerciseGateway);
     }
 }

@@ -5,8 +5,6 @@ import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.interfaces.FindByIdUserCase;
 import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
 
-import java.util.Optional;
-
 public class FindByIdUserCaseImp implements FindByIdUserCase {
 
     private final UserGateway userGateway;

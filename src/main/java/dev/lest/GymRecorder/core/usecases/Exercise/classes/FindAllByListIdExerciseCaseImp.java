@@ -8,11 +8,11 @@ import dev.lest.GymRecorder.infrastructure.exception.Exercise.ExerciseNotFoundIn
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class FindAllExerciseByListIdCaseImp implements FindAllExerciseByListIdCase {
+public class FindAllByListIdExerciseCaseImp implements FindAllExerciseByListIdCase {
 
     private final ExerciseGateway exerciseGateway;
 
-    public FindAllExerciseByListIdCaseImp(ExerciseGateway exerciseGateway) {
+    public FindAllByListIdExerciseCaseImp(ExerciseGateway exerciseGateway) {
         this.exerciseGateway = exerciseGateway;
     }
 

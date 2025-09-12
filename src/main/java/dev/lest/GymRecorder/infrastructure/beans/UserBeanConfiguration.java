@@ -4,11 +4,7 @@ import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.classes.CreateUserCaseImp;
 import dev.lest.GymRecorder.core.usecases.Users.classes.DeleteUserCaseImp;
 import dev.lest.GymRecorder.core.usecases.Users.classes.FindByIdUserCaseImp;
-import dev.lest.GymRecorder.core.usecases.Users.classes.UpdateUserCaseImp;
-import dev.lest.GymRecorder.core.usecases.Users.interfaces.CreateUserCase;
-import dev.lest.GymRecorder.core.usecases.Users.interfaces.DeleteUserCase;
-import dev.lest.GymRecorder.core.usecases.Users.interfaces.FindByIdUserCase;
-import dev.lest.GymRecorder.core.usecases.Users.interfaces.UpdateUserCase;
+import dev.lest.GymRecorder.core.usecases.Users.classes.UpdateUserCaseImp;  
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

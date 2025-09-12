@@ -4,9 +4,7 @@ import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.infrastructure.dtos.requests.user.UserUpdateRequest;
 import dev.lest.GymRecorder.infrastructure.dtos.responses.user.UserUpdateResponse;
 import lombok.experimental.UtilityClass;
-import lombok.extern.java.Log;
 
-import java.util.Map;
 
 @UtilityClass
 public class UserUpdateMapper {

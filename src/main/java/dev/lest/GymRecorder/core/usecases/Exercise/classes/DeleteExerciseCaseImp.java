@@ -23,10 +23,13 @@ public class DeleteExerciseCaseImp implements DeleteExerciseCase {
 
             exerciseGateway.deleteExercise(id);
             return true;
+
         } catch (UserNotFoundInExerciseDeleteException e) {
             throw new UserNotFoundInExerciseDeleteException(e.getLocalizedMessage(), e);
+
         } catch (RuntimeException e) {
             throw new RuntimeException("Exercise Error: Something in Delete Exercise Failed!",e);
+
         }
     }
 }

@@ -4,7 +4,6 @@ import dev.lest.GymRecorder.core.entities.Exercise;
 import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Exercise.interfaces.FindAllByUserIdExerciseCase;
-import dev.lest.GymRecorder.infrastructure.exception.Exercise.UserNotFoundInExerciseCreationException;
 import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
 
 import java.util.List;

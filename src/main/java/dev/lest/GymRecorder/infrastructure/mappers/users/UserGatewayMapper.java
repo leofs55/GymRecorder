@@ -2,7 +2,6 @@ package dev.lest.GymRecorder.infrastructure.mappers.users;
 
 import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.infrastructure.persistence.entitys.UsersEntity;
-import lombok.experimental.UtilityClass;
 
 public class UserGatewayMapper {
 

@@ -25,8 +25,10 @@ public class CreateExerciseCaseImp implements CreateExerciseCase {
                 throw new UserNotFoundInExerciseCreationException("Exercise Error: User not found!");
             }
             return exerciseGateway.createExercise(exercise);
+
         } catch (UserNotFoundInExerciseCreationException e) {
             throw new UserNotFoundInExerciseCreationException(e.getLocalizedMessage(), e);
+
         } catch (Exception e) {
             throw new RuntimeException("Exercise Error: Something in Creation Exercise Failed!" ,e);
         }

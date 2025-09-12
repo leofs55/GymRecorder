@@ -1,7 +1,6 @@
 package dev.lest.GymRecorder.core.usecases.Exercise.classes;
 
 import dev.lest.GymRecorder.core.entities.Exercise;
-import dev.lest.GymRecorder.core.entities.Training;
 import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
 import dev.lest.GymRecorder.core.gateway.UserGateway;

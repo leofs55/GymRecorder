@@ -6,7 +6,7 @@ import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.gateway.ExerciseGateway;
 import dev.lest.GymRecorder.core.gateway.TrainingGateway;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
-import dev.lest.GymRecorder.core.usecases.Exercise.classes.FindAllExerciseByListIdCaseImp;
+import dev.lest.GymRecorder.core.usecases.Exercise.classes.FindAllByListIdExerciseCaseImp;
 import dev.lest.GymRecorder.core.usecases.Training.interfaces.CreateTrainingCase;
 import dev.lest.GymRecorder.infrastructure.exception.Exercise.ExerciseNotFoundInFindAllByListIdException;
 import dev.lest.GymRecorder.infrastructure.exception.Training.UserNotFoundTrainingCreateException;
@@ -30,7 +30,7 @@ public class CreateTrainingCaseImp implements CreateTrainingCase {
         try {
 
             if (training.getExercises() != null) {
-                List<Exercise> exerciseList = new FindAllExerciseByListIdCaseImp(exerciseGateway).execute(training.getExercises());
+                List<Exercise> exerciseList = new FindAllByListIdExerciseCaseImp(exerciseGateway).execute(training.getExercises());
                 training.setExercises(exerciseList);
             }
 

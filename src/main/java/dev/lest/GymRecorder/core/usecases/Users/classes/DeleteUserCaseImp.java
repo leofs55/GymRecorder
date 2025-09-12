@@ -3,7 +3,6 @@ package dev.lest.GymRecorder.core.usecases.Users.classes;
 import dev.lest.GymRecorder.core.entities.User;
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.interfaces.DeleteUserCase;
-import dev.lest.GymRecorder.core.usecases.Users.interfaces.FindByIdUserCase;
 import dev.lest.GymRecorder.infrastructure.exception.User.PasswordDontMatchDeleteException;
 import dev.lest.GymRecorder.infrastructure.exception.User.UserNotFoundException;
 

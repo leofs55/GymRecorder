@@ -8,7 +8,6 @@ import dev.lest.GymRecorder.infrastructure.dtos.responses.training.TrainingCreat
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseCreateMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.exercise.ExerciseMapper;
 import dev.lest.GymRecorder.infrastructure.mappers.users.UserCreateMapper;
-import lombok.RequiredArgsConstructor;
 import lombok.experimental.UtilityClass;
 
 import java.util.List;
