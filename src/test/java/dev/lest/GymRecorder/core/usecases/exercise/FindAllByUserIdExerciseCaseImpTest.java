@@ -25,5 +25,7 @@ public class FindAllByUserIdExerciseCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }
 

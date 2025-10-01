@@ -21,4 +21,6 @@ public class CreateUserCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }

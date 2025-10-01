@@ -22,4 +22,5 @@ public class DeleteExerciseCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
 }

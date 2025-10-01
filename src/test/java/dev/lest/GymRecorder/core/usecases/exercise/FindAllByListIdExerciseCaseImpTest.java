@@ -22,4 +22,6 @@ public class FindAllByListIdExerciseCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }

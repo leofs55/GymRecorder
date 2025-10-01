@@ -26,4 +26,6 @@ public class DeleteTrainingCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }

@@ -26,4 +26,6 @@ public class UpdateTrainingCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }

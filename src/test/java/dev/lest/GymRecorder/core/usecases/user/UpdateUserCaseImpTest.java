@@ -2,6 +2,7 @@ package dev.lest.GymRecorder.core.usecases.user;
 
 import dev.lest.GymRecorder.core.gateway.UserGateway;
 import dev.lest.GymRecorder.core.usecases.Users.classes.UpdateUserCaseImp;
+import org.junit.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
@@ -19,6 +20,10 @@ public class UpdateUserCaseImpTest {
     @InjectMocks
     private UpdateUserCaseImp updateUserCaseImp;
 
+    @Test
     public void shouldExecuteOnSuccess() {}
+
+    @Test
+    public void shouldExecuteOnFailure() {}
 
 }

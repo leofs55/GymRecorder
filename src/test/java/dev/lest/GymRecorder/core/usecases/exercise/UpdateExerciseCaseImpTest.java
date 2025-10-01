@@ -22,4 +22,6 @@ public class UpdateExerciseCaseImpTest {
 
     public void shouldExecuteOnSuccess() {}
 
+    public void shouldExecuteOnFailure() {}
+
 }
